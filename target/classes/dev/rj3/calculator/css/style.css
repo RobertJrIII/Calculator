@@ -1,0 +1,25 @@
+.root{
+-fx-background-color:#303138;
+
+}
+
+.button {
+
+-fx-background-color:#282828;
+-fx-text-fill: #ffffff;
+
+
+
+}
+.button:hover {
+
+-fx-background-color:#ff8080;
+
+
+
+}
+
+.label{
+-fx-text-fill: #ffffff;
+
+}

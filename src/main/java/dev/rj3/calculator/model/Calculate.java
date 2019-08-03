@@ -3,7 +3,7 @@ package dev.rj3.calculator.model;
 public class Calculate {
 
 
-    public double calculate(double num1, double num2, String operator) {
+    public static double calculate(double num1, double num2, String operator) {
 
         switch (operator) {
             case "+":

@@ -23,13 +23,13 @@ public class Controller {
 
     private String operator = "";
     private double num1 = 0;
-    private Calculate model;
+
     private Stage stage;
     private Scene scene;
 
 
     public void initialize() {
-        model = new Calculate();
+
     }
 
     @FXML
@@ -65,7 +65,19 @@ public class Controller {
                 num2 = Double.NaN;
             }
 
-            output.setText(String.valueOf(model.calculate(num1, num2, operator)));
+            double answer = Calculate.calculate(num1, num2, operator);
+            answer = Math.round(10000.0 * answer) / 10000.0;
+            String answerStr = "";
+
+            if ((answer == Math.floor(answer)) && !Double.isInfinite(answer)) {
+
+                answerStr = String.valueOf((int) answer);
+            } else {
+                answerStr = String.valueOf(answer);
+            }
+
+
+            output.setText(answerStr);
             operator = "";
         }
     }

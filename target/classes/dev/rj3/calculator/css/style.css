@@ -1,25 +1,31 @@
 .root{
 -fx-background-color:#303138;
+-fx-text-fill: white;
 
 }
 
 .button {
 
 -fx-background-color:#282828;
--fx-text-fill: #ffffff;
+-fx-text-fill: white;
 
 
 
 }
-.button:hover {
+
+
+
+.button:pressed {
 
 -fx-background-color:#ff8080;
+-fx-font-weight:bold;
 
 
 
 }
 
+
 .label{
--fx-text-fill: #ffffff;
+-fx-text-fill: white;
 
 }

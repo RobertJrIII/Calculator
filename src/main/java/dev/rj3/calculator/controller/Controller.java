@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -113,10 +112,11 @@ public class Controller {
     public void setUpKeyPressed() {
         if (scene != null) {
             scene.setOnKeyPressed(e -> {
-                System.out.println(e.getText());
                 if (e.getCode().isDigitKey() || e.getText().equals(".")) {
 
                     processValue(e.getText());
+                } else if (e.getText().equals("c") || e.getText().equals("C")) {
+                    clearLabel();
                 }
             });
         }

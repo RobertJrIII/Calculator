@@ -90,7 +90,6 @@ public class Controller {
     }
 
 
-
     @FXML
     private void clearLabel() {
         output.setText("0");
@@ -114,9 +113,11 @@ public class Controller {
     public void setUpKeyPressed() {
         if (scene != null) {
             scene.setOnKeyPressed(e -> {
+                System.out.println(e.getText());
+                if (e.getCode().isDigitKey() || e.getText().equals(".")) {
 
-                processValue(e.getCode().getName());
-
+                    processValue(e.getText());
+                }
             });
         }
 

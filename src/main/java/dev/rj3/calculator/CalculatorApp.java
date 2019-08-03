@@ -1,5 +1,6 @@
 package dev.rj3.calculator;
 
+import dev.rj3.calculator.controller.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,22 +13,38 @@ public class CalculatorApp extends Application {
         launch(args);
     }
 
+    private FXMLLoader loader;
+    private AnchorPane root;
+    private Scene scene;
+    private Controller controller;
+
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Calculator");
+    public void start(Stage stage) throws Exception {
+        stage.setTitle("Calculator");
+        controller.setStageAndScene(stage, scene);
+        controller.setUpKeyPressed();
+        setUpStage(stage);
 
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("fxml/calcUI.fxml"));
-        Scene s = new Scene(anchorPane);
-        primaryStage.setMinHeight(360);
-        primaryStage.setMinWidth(280);
-        primaryStage.setResizable(false);
+        stage.show();
+    }
 
-        primaryStage.maximizedProperty().addListener((observable, oldValue, newValue) -> {
+    private void setUpStage(Stage stage) {
+        stage.setMinHeight(360);
+        stage.setMinWidth(280);
+        stage.setResizable(false);
+
+        stage.maximizedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue)
-                primaryStage.setMaximized(false);
+                stage.setMaximized(false);
         });
+        stage.setScene(scene);
+    }
 
-        primaryStage.setScene(s);
-        primaryStage.show();
+    @Override
+    public void init() throws Exception {
+        loader = new FXMLLoader(getClass().getResource("fxml/calcUI.fxml"));
+        root = loader.load();
+        controller = loader.getController();
+        scene = new Scene(root);
     }
 }

@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
 
 public class Controller {
@@ -24,7 +23,6 @@ public class Controller {
     private String operator = "";
     private double num1 = 0;
 
-    private Stage stage;
     private Scene scene;
 
 
@@ -57,20 +55,11 @@ public class Controller {
 
             if (operator.isEmpty()) return;
 
-            double num2;
+            double answer = round(Calculate.calculate(num1, Double.parseDouble(output.getText()), operator));
 
-            try {
-                num2 = Double.parseDouble(output.getText());
-            } catch (NumberFormatException ne) {
-                num2 = Double.NaN;
-            }
-
-            double answer = Calculate.calculate(num1, num2, operator);
-            answer = Math.round(10000.0 * answer) / 10000.0;
-            String answerStr = "";
+            String answerStr;
 
             if ((answer == Math.floor(answer)) && !Double.isInfinite(answer)) {
-
                 answerStr = String.valueOf((int) answer);
             } else {
                 answerStr = String.valueOf(answer);
@@ -82,7 +71,12 @@ public class Controller {
         }
     }
 
-    public void processValue(String source) {
+    private double round(double answer) {
+
+        return Math.round(100000000.0 * answer) / 100000000.0;
+    }
+
+    private void processValue(String source) {
 
         String value = source;
 
@@ -108,14 +102,9 @@ public class Controller {
         operator = "";
     }
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
 
+    public void setScene(Scene scene) {
 
-    }
-
-    public void setStageAndScene(Stage stage, Scene scene) {
-        this.stage = stage;
         this.scene = scene;
 
     }

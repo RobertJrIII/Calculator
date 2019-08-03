@@ -19,9 +19,9 @@ public class CalculatorApp extends Application {
     private Controller controller;
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage)  {
         stage.setTitle("Calculator");
-        controller.setStageAndScene(stage, scene);
+        controller.setScene(scene);
         controller.setUpKeyPressed();
         setUpStage(stage);
 

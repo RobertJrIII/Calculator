@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -84,12 +85,12 @@ public class Controller {
             value = "-";
         }
 
+
         if (output.getText().equals("") || (output.getText().equals("0") && output.getText().length() == 1)) {
 
             output.setText(value);
 
         } else {
-
             output.setText(output.getText() + value);
         }
     }
@@ -113,11 +114,21 @@ public class Controller {
     public void setUpKeyPressed() {
         if (scene != null) {
             scene.setOnKeyPressed(e -> {
-                if (e.getCode().isDigitKey() || e.getText().equals(".")) {
+                System.out.println(e.getCode());
+                KeyCode keyCode = e.getCode();
+                String key = e.getText();
 
-                    processValue(e.getText());
-                } else if (e.getText().equals("c") || e.getText().equals("C")) {
+
+                if (keyCode.isDigitKey() || key.equals(".")) {
+
+                    processValue(key);
+                } else if (key.equals("c") || key.equals("C")) {
                     clearLabel();
+                } else if (key.equals("%") || key.equals("+") || key.equals("-") || key.equals("*") || key.equals("/") || key.equals("=") || keyCode.equals(KeyCode.ENTER)) {
+                    if (keyCode.equals(KeyCode.ENTER)) {
+                        key = "=";
+                    }
+                    processOperator(key);
                 }
             });
         }

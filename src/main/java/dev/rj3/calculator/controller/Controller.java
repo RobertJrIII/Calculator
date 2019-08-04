@@ -7,8 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 
 
 public class Controller {
@@ -16,20 +14,13 @@ public class Controller {
 
     @FXML
     private Label output;
-    @FXML
-    private GridPane pad;
-    @FXML
-    private AnchorPane root;
+
 
     private String operator = "";
     private double num1 = 0;
 
     private Scene scene;
 
-
-    public void initialize() {
-
-    }
 
     @FXML
     private void operatorClicked(MouseEvent e) {
@@ -114,23 +105,33 @@ public class Controller {
     public void setUpKeyPressed() {
         if (scene != null) {
             scene.setOnKeyPressed(e -> {
-                System.out.println(e.getCode());
+
+
+                System.out.println(e.getCode() + " " + e.getText());
                 KeyCode keyCode = e.getCode();
                 String key = e.getText();
 
 
-                if (keyCode.isDigitKey() || key.equals(".")) {
-
-                    processValue(key);
-                } else if (key.equals("c") || key.equals("C")) {
-                    clearLabel();
-                } else if (key.equals("%") || key.equals("+") || key.equals("-") || key.equals("*") || key.equals("/") || key.equals("=") || keyCode.equals(KeyCode.ENTER)) {
+                if (key.equals("%") || key.equals("+") || key.equals("-") || key.equals("*") || key.equals("/") || key.equals("=") || keyCode.equals(KeyCode.ENTER)) {
                     if (keyCode.equals(KeyCode.ENTER)) {
                         key = "=";
                     }
                     processOperator(key);
+                } else if (keyCode.equals(KeyCode.DELETE) || key.equals("C") || key.equals("c")) {
+                    clearLabel();
+                } else if (keyCode.isDigitKey() || key.equals(".")) {
+                    processValue(key);
+                } else if (keyCode.equals(KeyCode.BACK_SPACE)) {
+                    String val = output.getText().substring(0, output.getText().length() - 1);
+                    if (val.equals("")) {
+                        val = String.valueOf(0);
+                    }
+                    output.setText(val);
                 }
+
             });
+
+
         }
 
     }

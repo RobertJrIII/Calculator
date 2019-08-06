@@ -11,112 +11,113 @@
 
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="360.0" minWidth="280.0" prefHeight="360.0" prefWidth="280.0" snapToPixel="false" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.rj3.calculator.controller.Controller">
     <children>
-        <GridPane fx:id="pad" alignment="CENTER" cacheShape="false" centerShape="false" minHeight="260.0" minWidth="280.0" pickOnBounds="false" prefHeight="260.0" prefWidth="280.0" snapToPixel="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <GridPane fx:id="pad" alignment="CENTER" cacheShape="false" centerShape="false" minHeight="260.0" minWidth="280.0" pickOnBounds="false" prefHeight="260.0" prefWidth="280.0" snapToPixel="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <columnConstraints>
-                <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="70.0" percentWidth="0.0" prefWidth="70.0" />
-                <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="70.0" percentWidth="0.0" prefWidth="70.0" />
-                <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="70.0" percentWidth="0.0" prefWidth="70.0" />
-                <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="70.0" percentWidth="0.0" prefWidth="70.0" />
+
+                <ColumnConstraints minWidth="70.0" percentWidth="25" />
+                <ColumnConstraints minWidth="70.0" percentWidth="25" />
+                <ColumnConstraints minWidth="70.0" percentWidth="25" />
+                <ColumnConstraints minWidth="70.0" percentWidth="25" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="52.0" percentHeight="0.0" prefHeight="52.0" />
-                <RowConstraints minHeight="52.0" prefHeight="52.0" />
-                <RowConstraints minHeight="52.0" prefHeight="52.0" />
-                <RowConstraints minHeight="52.0" prefHeight="52.0" />
-                <RowConstraints minHeight="52.0" percentHeight="0.0" prefHeight="52.0" />
+                <RowConstraints minHeight="52.0" percentHeight="20" />
+                <RowConstraints minHeight="52.0" percentHeight="20" />
+                <RowConstraints minHeight="52.0" percentHeight="20" />
+                <RowConstraints minHeight="52.0" percentHeight="20" />
+                <RowConstraints minHeight="52.0" percentHeight="20" />
             </rowConstraints>
             <children>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#clearLabel" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="C" textAlignment="JUSTIFY" textOverrun="CLIP">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#clearLabel" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="C" textAlignment="JUSTIFY" textOverrun="CLIP">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="+/‒" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="1">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="+/‒" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="1">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="\%" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="2">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="\%" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="2">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="/" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="3">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="/" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="3">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="7" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.rowIndex="1">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="7" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.rowIndex="1">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="8" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="8" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="9" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="9" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="+" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="+" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="3">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="." textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="." textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="4">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="2" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="2" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="1" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.rowIndex="3">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="1" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.rowIndex="3">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="5" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="5" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="4" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.rowIndex="2">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="4" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.rowIndex="2">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="6" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="6" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="2">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="3" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="3" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="3">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="=" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="=" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="4">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="*" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="*" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="1">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="70.0" scaleShape="false" text="-" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="70.0" mnemonicParsing="false" onMouseClicked="#operatorClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="-" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="2">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" minHeight="52.0" minWidth="140.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" prefHeight="52.0" prefWidth="140.0" scaleShape="false" text="0" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" ellipsisString="" focusTraversable="false" graphicTextGap="0.0" maxHeight="Infinity" maxWidth="Infinity" minHeight="52.0" minWidth="140.0" mnemonicParsing="false" onMouseClicked="#valueClicked" pickOnBounds="false" scaleShape="false" snapToPixel="false" text="0" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.columnSpan="2" GridPane.rowIndex="4">
                     <font>
                         <Font size="20.0" />
                     </font>

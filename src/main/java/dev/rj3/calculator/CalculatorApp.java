@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class CalculatorApp extends Application {
 
@@ -19,24 +20,21 @@ public class CalculatorApp extends Application {
     private Controller controller;
 
     @Override
-    public void start(Stage stage)  {
+    public void start(Stage stage) {
         stage.setTitle("Calculator");
         controller.setScene(scene);
         controller.setUpKeyPressed();
+        stage.initStyle(StageStyle.UNIFIED);
         setUpStage(stage);
-
         stage.show();
     }
 
     private void setUpStage(Stage stage) {
+        stage.setResizable(false);
         stage.setMinHeight(360);
         stage.setMinWidth(280);
-        stage.setResizable(false);
 
-        stage.maximizedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue)
-                stage.setMaximized(false);
-        });
+
         stage.setScene(scene);
     }
 

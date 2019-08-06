@@ -1,12 +1,16 @@
 package dev.rj3.calculator.controller;
 
 import dev.rj3.calculator.model.Calculate;
+import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 
 
 public class Controller {
@@ -14,13 +18,19 @@ public class Controller {
 
     @FXML
     private Label output;
-
+    @FXML
+    private GridPane pad;
 
     private String operator = "";
     private double num1 = 0;
 
     private Scene scene;
+    @FXML
+    private AnchorPane root;
 
+    public void initialize() {
+
+    }
 
     @FXML
     private void operatorClicked(MouseEvent e) {
@@ -74,7 +84,7 @@ public class Controller {
         if (source.equals("+/‒")) {
             source = "-";
         }
-        if (source.equals("-") && output.getText().contains("-") || source.equals(".") && output.getText().contains(".")) {
+        if (source.equals("-") && output.getText().contains("-") || source.equals(".") && output.getText().contains(".") || source.equals("-") && output.getText().length() > 1) {
             return;
         }
 

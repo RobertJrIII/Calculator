@@ -70,19 +70,20 @@ public class Controller {
 
     private void processValue(String source) {
 
-        String value = source;
 
-        if (value.equals("+/‒")) {
-            value = "-";
+        if (source.equals("+/‒")) {
+            source = "-";
         }
-
+        if (source.equals("-") && output.getText().contains("-") || source.equals(".") && output.getText().contains(".")) {
+            return;
+        }
 
         if (output.getText().equals("") || (output.getText().equals("0") && output.getText().length() == 1)) {
 
-            output.setText(value);
+            output.setText(source);
 
         } else {
-            output.setText(output.getText() + value);
+            output.setText(output.getText() + source);
         }
     }
 
@@ -106,8 +107,6 @@ public class Controller {
         if (scene != null) {
             scene.setOnKeyPressed(e -> {
 
-
-                System.out.println(e.getCode() + " " + e.getText());
                 KeyCode keyCode = e.getCode();
                 String key = e.getText();
 
@@ -135,4 +134,6 @@ public class Controller {
         }
 
     }
+
+
 }

@@ -1,4 +1,4 @@
-dev/rj3/calculator/model/Calculate.class
-dev/rj3/calculator/controller/Controller.class
 dev/rj3/calculator/CalcLauncher.class
+dev/rj3/calculator/model/Calculate.class
 dev/rj3/calculator/CalculatorApp.class
+dev/rj3/calculator/controller/Controller.class

@@ -1,16 +1,16 @@
 package dev.rj3.calculator.controller;
 
 import dev.rj3.calculator.model.Calculate;
-import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
 
 
 public class Controller {
@@ -20,13 +20,14 @@ public class Controller {
     private Label output;
     @FXML
     private GridPane pad;
-
+    private final String NAN = "Not a number";
     private String operator = "";
     private double num1 = 0;
 
     private Scene scene;
     @FXML
     private AnchorPane root;
+    private Alert alert;
 
     public void initialize() {
 
@@ -40,8 +41,7 @@ public class Controller {
 
     @FXML
     private void valueClicked(MouseEvent e) {
-        String value = (((Button) e.getSource()).getText());
-        processValue(value);
+        processValue(((Button) e.getSource()).getText());
 
     }
 
@@ -51,13 +51,27 @@ public class Controller {
             if (!operator.isEmpty()) return;
 
             operator = value;
-            num1 = Double.parseDouble(output.getText());
+            try {
+                num1 = Double.parseDouble(output.getText());
+            } catch (NumberFormatException e) {
+                output.setText(NAN);
+
+                return;
+            }
+
             output.setText("");
         } else {
 
             if (operator.isEmpty()) return;
+            double num2;
+            try {
+                num2 = Double.parseDouble(output.getText());
+            } catch (NumberFormatException e) {
+                output.setText(NAN);
+                return;
+            }
 
-            double answer = round(Calculate.calculate(num1, Double.parseDouble(output.getText()), operator));
+            double answer = round(Calculate.calculate(num1, num2, operator));
 
             String answerStr;
 
@@ -84,14 +98,18 @@ public class Controller {
         if (source.equals("+/‒")) {
             source = "-";
         }
-        if (source.equals("-") && output.getText().contains("-") || source.equals(".") && output.getText().contains(".") || source.equals("-") && output.getText().length() > 1) {
+        if (source.equals("-") && output.getText().contains("-") || source.equals(".") && output.getText().contains(".") || (source.equals("-") && output.getText().length() >= 1 && !output.getText().equals("0"))) {
             return;
         }
+
 
         if (output.getText().equals("") || (output.getText().equals("0") && output.getText().length() == 1)) {
 
             output.setText(source);
 
+        } else if (output.getText().equals("Not a number")) {
+            clearLabel();
+            output.setText(source);
         } else {
             output.setText(output.getText() + source);
         }
@@ -145,5 +163,8 @@ public class Controller {
 
     }
 
+    private void setOutputText(String val) {
+        output.setText(val);
+    }
 
 }

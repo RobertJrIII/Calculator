@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 
@@ -18,6 +17,8 @@ public class Controller {
     private Label output;
     @FXML
     private GridPane pad;
+
+
     private final String NAN = "Not A Number";
     private String operator = "";
 
@@ -31,6 +32,7 @@ public class Controller {
 
         processOperator(((Button) e.getSource()).getText());
     }
+
 
     @FXML
     private void valueClicked(MouseEvent e) {
@@ -53,10 +55,11 @@ public class Controller {
                 return;
             }
 
-            output.setText("");
+            setOutputText("");
         } else {
 
             if (operator.isEmpty()) return;
+
             double num2;
             try {
                 num2 = Double.parseDouble(getLabelText());
@@ -94,17 +97,18 @@ public class Controller {
     private void processValue(String source) {
 
 
-        if (source.equals("+/‒")) {
+        if (isStringThis(source, "+/‒")) {
             source = "-";
         }
-        if (source.equals("-") && getLabelText().contains("-") || source.equals(".") && getLabelText().contains(".") || (source.equals("-") && getLabelText().length() >= 1 && !getLabelText().equals("0"))) {
+        if (isStringThis(source, "-") && getLabelText().contains("-") || isStringThis(source, ".") &&
+                getLabelText().contains(".") || (isStringThis(source, "-") && getLabelText().length() >= 1 && !isStringThis(source, "0"))) {
             return;
         }
 
 
-        if (getLabelText().equals("") || (getLabelText().equals("0") && getLabelText().length() == 1)) {
+        if (isStringThis(getLabelText(), "") || (isStringThis(getLabelText(), "0") && getLabelText().length() == 1)) {
             setOutputText(source);
-        } else if (getLabelText().equals("Not a number")) {
+        } else if (isStringThis(getLabelText(), NAN)) {
             clearLabel();
             setOutputText(source);
         } else {
@@ -112,6 +116,10 @@ public class Controller {
         }
     }
 
+
+    private boolean isStringThis(String val, String expectedString) {
+        return val.equals(expectedString);
+    }
 
     @FXML
     private void clearLabel() {
@@ -130,21 +138,30 @@ public class Controller {
 
     public void setUpKeyPressed() {
         if (scene != null) {
-            scene.setOnKeyPressed(e -> {
 
+            scene.setOnKeyPressed(e -> {
                 KeyCode keyCode = e.getCode();
+
                 String key = e.getText();
                 if (keyCode.equals(KeyCode.ENTER)) {
                     key = "=";
                 }
                 if (isOperator(key)) {
+
                     processOperator(key);
+
                 } else if (keyCode.equals(KeyCode.DELETE)) {
+
                     clearLabel();
+
                 } else if (keyCode.isDigitKey() || key.equals(".")) {
+
                     processValue(key);
+
                 } else if (keyCode.equals(KeyCode.BACK_SPACE)) {
+
                     delete();
+
                 }
 
             });
@@ -155,8 +172,10 @@ public class Controller {
     }
 
     private void delete() {
+        if (getLabelText().length() == 0) return;
         String val = getLabelText().substring(0, output.getText().length() - 1);
-        if (val.equals("")) {
+        if (isStringThis(val, "")) {
+
             val = String.valueOf(0);
         }
         setOutputText(val);

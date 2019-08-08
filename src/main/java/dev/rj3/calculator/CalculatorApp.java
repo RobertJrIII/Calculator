@@ -24,7 +24,6 @@ public class CalculatorApp extends Application {
         stage.setTitle("Calculator");
         controller.setScene(scene);
         controller.setUpKeyPressed();
-        stage.initStyle(StageStyle.UNIFIED);
         setUpStage(stage);
         stage.show();
     }

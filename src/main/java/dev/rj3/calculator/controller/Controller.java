@@ -3,9 +3,7 @@ package dev.rj3.calculator.controller;
 import dev.rj3.calculator.model.Calculate;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
@@ -20,11 +18,11 @@ public class Controller {
     private Label output;
     @FXML
     private GridPane pad;
-    private final String NAN = "Not a number";
+    private final String NAN = "Not A Number";
     private String operator = "";
 
-    private final double DEFUALT_VAL = 0;
-    private double num1 = DEFUALT_VAL;
+    private final double DEFAULT_VAL = 0;
+    private double num1 = DEFAULT_VAL;
     private Scene scene;
 
 
@@ -48,7 +46,7 @@ public class Controller {
             operator = value;
 
             try {
-                num1 = Double.parseDouble(getOutputText());
+                num1 = Double.parseDouble(getLabelText());
             } catch (NumberFormatException e) {
                 setOutputText(NAN);
 
@@ -61,20 +59,22 @@ public class Controller {
             if (operator.isEmpty()) return;
             double num2;
             try {
-                num2 = Double.parseDouble(getOutputText());
+                num2 = Double.parseDouble(getLabelText());
             } catch (NumberFormatException e) {
                 setOutputText(NAN);
                 return;
             }
 
-            double answer = round(Calculate.calculate(num1, num2, operator));
+            double answer = Calculate.calculate(num1, num2, operator);
 
-            setOutputText(displayAnswer(answer));
+            setOutputText(processAnswer(answer));
             operator = "";
         }
     }
 
-    private String displayAnswer(double answer) {
+
+    private String processAnswer(double answer) {
+        answer = round(answer);
         if (isInteger(answer)) {
             return String.valueOf((int) answer);
         } else {
@@ -97,28 +97,26 @@ public class Controller {
         if (source.equals("+/‒")) {
             source = "-";
         }
-        if (source.equals("-") && output.getText().contains("-") || source.equals(".") && output.getText().contains(".") || (source.equals("-") && output.getText().length() >= 1 && !output.getText().equals("0"))) {
+        if (source.equals("-") && getLabelText().contains("-") || source.equals(".") && getLabelText().contains(".") || (source.equals("-") && getLabelText().length() >= 1 && !getLabelText().equals("0"))) {
             return;
         }
 
 
-        if (output.getText().equals("") || (output.getText().equals("0") && output.getText().length() == 1)) {
-
-            output.setText(source);
-
-        } else if (output.getText().equals("Not a number")) {
+        if (getLabelText().equals("") || (getLabelText().equals("0") && getLabelText().length() == 1)) {
+            setOutputText(source);
+        } else if (getLabelText().equals("Not a number")) {
             clearLabel();
-            output.setText(source);
+            setOutputText(source);
         } else {
-            output.setText(output.getText() + source);
+            setOutputText(getLabelText() + source);
         }
     }
 
 
     @FXML
     private void clearLabel() {
-        setOutputText(String.valueOf(DEFUALT_VAL));
-        num1 = DEFUALT_VAL;
+        setOutputText(String.valueOf((int) DEFAULT_VAL));
+        num1 = DEFAULT_VAL;
         operator = "";
     }
 
@@ -157,7 +155,7 @@ public class Controller {
     }
 
     private void delete() {
-        String val = getOutputText().substring(0, output.getText().length() - 1);
+        String val = getLabelText().substring(0, output.getText().length() - 1);
         if (val.equals("")) {
             val = String.valueOf(0);
         }
@@ -168,7 +166,7 @@ public class Controller {
         return key.equals("%") || key.equals("+") || key.equals("-") || key.equals("*") || key.equals("/") || key.equals("=");
     }
 
-    private String getOutputText() {
+    private String getLabelText() {
         return output.getText();
     }
 
